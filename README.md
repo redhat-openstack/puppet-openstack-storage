@@ -7,21 +7,21 @@ This will be utilized to provision bare-metal nodes as GlusterFS storage control
 Example:
 ========
 
-class example {
-
-  class { 'gluster::server': }
-
-  volume { 'glance':
-    ensure         => present,
-    path           => '/gluster/glance',
-    peers          => [ '192.168.0.1', '192.168.0.2', '192.168.0.3' ],
-    replica_count  => '3',
-  }
-
-  volume { 'cinder':
-    ensure         => present,
-    path           => '/gluster/cinder',
-    peers          => [ '192.168.0.1', '192.168.0.2', '192.168.0.3' ],
-    replica_count  => '3',
-  }
-}
+class example {  
+  
+  class { 'gluster::server': }  
+  
+  volume { 'glance':  
+    ensure         => present,  
+    path           => '/gluster/glance',  
+    peers          => [ '192.168.0.1', '192.168.0.2', '192.168.0.3' ],  
+    replica_count  => '3',  
+  }  
+  
+  volume { 'cinder':  
+    ensure         => present,  
+    path           => '/gluster/cinder',  
+    peers          => [ '192.168.0.1', '192.168.0.2', '192.168.0.3' ],  
+    replica_count  => '3',  
+  }  
+}  
