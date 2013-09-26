@@ -24,4 +24,10 @@ class storage {
     peers          => [ '192.168.0.1', '192.168.0.2', '192.168.0.3' ],  
     replica_count  => '3',  
   }  
-}  
+}
+
+Current Status
+===================
+This currently only works with replicated volumes, though support for distributed
+and distributed-replicated should be in the works later.  Also, only Cinder and Glance
+are included thus far with Swift to be added shortly.  
