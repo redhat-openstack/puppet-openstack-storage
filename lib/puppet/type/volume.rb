@@ -8,7 +8,7 @@ module Puppet
 
     newparam(:name) do
       isnamevar
-      desc 'Volune name'
+      desc 'Volume name'
     end
 
     newparam(:path) do
