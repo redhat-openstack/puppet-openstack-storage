@@ -1,35 +1,31 @@
-require 'puppet'
+Puppet::Type.newtype(:volume) do
+  @doc = 'A storage volume'
 
-module Puppet
-  Puppet::Type.newtype(:volume) do
-    @doc = 'A storage volume'
+  ensurable
 
-    ensurable
+  newparam(:name) do
+    isnamevar
+    desc 'Volume name'
+  end
 
-    newparam(:name) do
-      isnamevar
-      desc 'Volume name'
-    end
+  newparam(:path) do
+    desc 'Volume path'
+  end
 
-    newparam(:path) do
-      desc 'Volume path'
-    end
+  newparam(:peers) do
+    desc 'Cluster peers'
+  end
 
-    newparam(:peers) do
-      desc 'Cluster peers'
-    end
+  newparam(:replica_count) do
+    desc 'Replication count'
 
-    newparam(:replica_count) do
-      desc 'Replication count'
+    defaultto 2
 
-      defaultto 2
-
-      validate do |value|
-        if value.to_i.class != Fixnum || value.to_i < 0
-          raise ArgumentError, "Requires a positive integer"
-        else
-          super
-        end
+    validate do |value|
+      if value.to_i.class != Fixnum || value.to_i < 0
+        raise ArgumentError, "Requires a positive integer"
+      else
+        super
       end
     end
   end

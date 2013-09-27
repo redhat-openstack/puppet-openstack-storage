@@ -1,5 +1,5 @@
 # quickstack storage class
-class quickstack::storage {
+class example::storage {
 
   class { 'gluster::server': }
 
