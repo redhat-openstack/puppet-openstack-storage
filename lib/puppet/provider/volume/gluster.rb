@@ -6,7 +6,6 @@ Puppet::Type.type(:volume).provide(:gluster) do
   optional_commands :gluster => '/usr/sbin/gluster'
 
   def exists?
-    #gluster('volume', 'status', @resource[:name])
     volume_exist?
   rescue Puppet::ExecutionFailure
     return false
