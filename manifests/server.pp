@@ -27,7 +27,7 @@ class gluster::server (
   }
 
   # 1 port per brick - We start with three
-  firewall { '001 gluster bricks incoming':
+  firewall { '003 gluster bricks incoming':
     proto    => 'tcp',
     dport    => [ '24009', '24010', '24011'],
     action   => 'accept',
