@@ -7,7 +7,7 @@ This will be utilized to provision bare-metal nodes as GlusterFS storage control
 Server side example
 ===================
 
-<code>
+<pre>
 class storage {  
   
   class { 'gluster::server': }  
@@ -26,7 +26,7 @@ class storage {
     replica_count  => '3',  
   }  
 }
-</code>
+</pre>
 
 Current Status
 ===================
