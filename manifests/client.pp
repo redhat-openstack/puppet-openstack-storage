@@ -1,4 +1,4 @@
-# setup the minimum for an OpenStack GlusterFS client
+# OpenStack GlusterFS client
 class gluster::client {
     
     package { 'glusterfs-fuse':
