@@ -13,23 +13,4 @@ class gluster::server (
   } -> service { $server_service_name:
     ensure => 'running',
   } 
-
-  firewall { '001 RPC incoming':
-    proto    => 'tcp',
-    dport    => [ '111' ],
-    action   => 'accept',
-  } 
-
-  firewall { '002 gluster daemon and management incoming':
-    proto    => 'tcp',
-    dport    => [ '24007', '24008' ],
-    action   => 'accept',
-  }
-
-  # 1 port per brick - We start with three
-  firewall { '003 gluster bricks incoming':
-    proto    => 'tcp',
-    dport    => [ '24009', '24010', '24011'],
-    action   => 'accept',
-  } 
 }
