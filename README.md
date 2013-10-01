@@ -7,8 +7,7 @@ This will be utilized to provision bare-metal nodes as GlusterFS storage control
 Server side example
 ===================
 
-<pre>
-class storage {  
+`class storage {  
   
   class { 'gluster::server': }  
   
@@ -25,8 +24,8 @@ class storage {
     peers          => [ '192.168.0.1', '192.168.0.2', '192.168.0.3' ],  
     replica_count  => '3',  
   }  
-}
-</pre>
+}`
+
 Current Status
 ===================
 This currently only works with replicated volumes, though support for distributed
