@@ -9,6 +9,7 @@ class gluster::params {
       # Services
       $server_service_name          = 'glusterd'
       $rpc_service_name             = 'rpcbind'
+      $rpc_package_name             = 'rpcbind'
     }
     default: {
       fail("Unsupported osfamily: ${::osfamily} operatingsystem: ${::operatingsystem}, module ${module_name} only support osfamily RedHat")
