@@ -1,3 +1,4 @@
+require 'fileutils'
 require 'puppet'
 
 Puppet::Type.type(:volume).provide(:gluster) do
@@ -15,6 +16,10 @@ Puppet::Type.type(:volume).provide(:gluster) do
     cluster = Cluster.new(@resource[:peers])
     if cluster.attached?
       #  gluster('volume', 'create', @resource[:name], 'replica', @resource[:replica_count], bricks)
+      volume_dir = File.dirname(@resource[:path])
+      unless File.exist?(volume_dir)
+        FileUtils.mkdir_p(volume_dir)
+      end
       %x(/usr/sbin/gluster volume create #{@resource[:name]} replica #{@resource[:replica_count]} #{bricks})
       gluster('volume', 'start', @resource[:name]) if $?
     end
